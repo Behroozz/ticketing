@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: auth
-          image: btabe0914/auth
+          image: us.gcr.io/ticketing-dev-333405/auth #btabe0914/auth
 ---
 apiVersion: v1
 kind: Service
