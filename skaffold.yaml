@@ -5,16 +5,14 @@ deploy:
     manifests:
       - ./infra/k8s/* # take a look at the all the files in here
 build:
-  # local:
-  #   push: false # when we build image dont push to dockerhub
-  googleCloudBuild:
-    projectId: ticketing-dev-333405  
+  local:
+    push: false # when we build image dont push to dockerhub
   artifacts: # all th things that is getting build
-    - image: us.gcr.io/ticketing-dev-333405/auth
+    - image: btabe0914/auth
       context: auth # folder for image
       docker:
-        dockerfile: Dockerfile 
-      sync: # how to handle any file that change and move it to the pod
+        dockerfile: Dockerfile
+      sync: # how to handle any file that change
         manual:
           - src: 'src/**/*.ts'
             dest: . # where to sync these files inside of our container
