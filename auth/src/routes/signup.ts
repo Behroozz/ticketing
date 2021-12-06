@@ -1,4 +1,5 @@
 import express, { Request, Response } from 'express'
+import jwt from 'jsonwebtoken'
 import { body, validationResult } from 'express-validator'
 import { ReqesutValidationError } from '../errors/request-validation'
 import { BadRequestError } from '../errors/bad-request-error'
@@ -35,6 +36,27 @@ router.post(
     })
 
     await user.save()
+    // Generate JWT
+    const userJwt = jwt.sign(
+      {
+        id: user.id,
+        email: user.email
+      },
+      process.env.JWT_KEY!
+    )
+
+    // Store it on session object
+    req.session = {
+      jwt: userJwt
+    }
+    // to extract the jwt
+    // https://www.base64decode.org/
+    // https://jwt.io/
+    // {
+    //   "id": "61ad8c0b9a97b17905c6af2d",
+    //   "email": "test5@yahoo.com",
+    //   "iat": 1638763531
+    // }
 
     res.status(201).send(user)
   }

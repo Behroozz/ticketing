@@ -5,6 +5,16 @@
 Delete all deployments
 kubectl delete --all deploymen
 
+# debug
+
+k describe pod name_pod
+
+# Create Secret
+
+kubectl create secret generic jwt-secret --from-literal=JWT_KEY=asdf
+// secret/jwt-secret created
+k get secrets
+
 # Prepare
 
 Command Palette via (⇧⌘P) and type shell command
