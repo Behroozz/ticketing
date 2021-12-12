@@ -48,3 +48,7 @@ switch between local and google cloud
 2.  enable the correct skaffold
 3.  update the service image name
 4.  switch the docker context
+
+# Testing
+
+npmjs.com/package/supertest
