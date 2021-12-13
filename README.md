@@ -52,3 +52,27 @@ switch between local and google cloud
 # Testing
 
 npmjs.com/package/supertest
+
+# namespace
+
+- k get namespace
+
+NAME STATUS AGE
+default Active 19d
+ingress-nginx Active 18d
+kube-node-lease Active 19d
+kube-public Active 19d
+kube-system Active 19d
+
+Cross namespace communication
+http://nameofservice.namespace.svc.cluster.local
+
+http://ingress-nginx-controller.ingress-nginx.svc.cluster.local
+
+The above URL can be point to ExternalName for easier access
+
+- k get service -n ingress-nginx
+
+NAME TYPE CLUSTER-IP EXTERNAL-IP PORT(S) AGE
+ingress-nginx-controller LoadBalancer 10.107.41.64 localhost 80:30113/TCP,443:30029/TCP 18d
+ingress-nginx-controller-admission
