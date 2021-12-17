@@ -76,3 +76,11 @@ The above URL can be point to ExternalName for easier access
 NAME TYPE CLUSTER-IP EXTERNAL-IP PORT(S) AGE
 ingress-nginx-controller LoadBalancer 10.107.41.64 localhost 80:30113/TCP,443:30029/TCP 18d
 ingress-nginx-controller-admission
+
+# Publish Package
+
+git init -y
+git add .
+git commit -m "initial commit"
+npm login
+npm publish --access public
